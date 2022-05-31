@@ -38,6 +38,7 @@ public class Main {
             return String.valueOf(z);
         }
     }
+
     public static boolean checkInput (String[] inputStringArr) throws Exception{
         String[] operators = {"+","-","*","/"};
         String[] arabicNumbers = {"1","2","3","4","5","6","7","8","9","10"};
@@ -85,6 +86,7 @@ public class Main {
         //это римская система счисления?
         return num1 == 2;
     }
+
     public static String arabianToRoman (int input) {
         int C, L, X, V, I;
         boolean nine = false, ninety = false;
@@ -143,6 +145,7 @@ public class Main {
         }
         return outputString;
     }
+
     public static String romanToArabic (String input) {
         return switch (input) {
             case "I" -> "1";
