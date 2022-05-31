@@ -40,24 +40,26 @@ public class Main {
     }
 
     public static boolean checkInput (String[] inputStringArr) throws Exception{
-        String[] operators = {"+","-","*","/"};
+        String[] operators = {"+", "-", "*", "/"};
         String[] arabicNumbers = {"1","2","3","4","5","6","7","8","9","10"};
         String[] romanianNumbers = {"I","II","III","IV","V","VI","VII","VIII","IX","X"};
 
+        //проверка на мат операцию
+        String operator = "";
+        for (String op : operators) {
+            for (String inputString : inputStringArr) {
+                if (inputString.equals(op)) {
+                    operator = op;
+                    break;
+                }
+            }
+        }
+        if (operator.equals("")) {
+            throw new Exception("строка не является математической операцией");
+        }
         //проверка на формат
         if (inputStringArr.length!=3) {
             throw new Exception("формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)");
-        }
-        //проверка на мат операцию
-        String op = "";
-        for (String operator : operators) {
-            if (inputStringArr[1].equals(operator)) {
-                op = operator;
-                break;
-            }
-        }
-        if (op.equals("")) {
-            throw new Exception("строка не является математической операцией");
         }
         //проверка корректности чисел
         int num1 = 0;
